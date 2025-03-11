@@ -1,5 +1,6 @@
 package main.java.com.bhc.model;
 
-public class PackageType {
-
+public enum PackageType {
+    LOOSE,
+    CARTON
 }
