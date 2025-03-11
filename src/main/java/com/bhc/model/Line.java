@@ -7,7 +7,7 @@ import java.util.List;
 public class Line {
     private int number;
     private PackageType type;
-    private String qualityMark;
+    private String qualityMark; // Quality mark as a String
     private double maxCapacity; // in kgs or number of cartons
     private List<Package> packages;
     private List<Pallet> pallets;
@@ -22,7 +22,7 @@ public class Line {
     }
 
     public boolean addPackage(Package pkg) {
-        if (pkg.getType() == type && pkg.getQualityMark() == qualityMark) {
+        if (pkg.getType() == type && pkg.getQualityMark().equals(qualityMark)) {
             packages.add(pkg);
             return true;
         }
@@ -30,7 +30,7 @@ public class Line {
     }
 
     public boolean addPallet(Pallet pallet) {
-        if (type == PackageType.LOOSE && pallet.getQualityMark() == qualityMark) {
+        if (type == PackageType.LOOSE && pallet.getQualityMark().equals(qualityMark)) {
             pallets.add(pallet);
             return true;
         }

@@ -4,7 +4,7 @@ package main.java.com.bhc.model;
 public class Package {
     private String serialNumber;
     private PackageType type;
-    private String qualityMark;
+    private String qualityMark; // Quality mark as a String
     private double mass; // in kgs
 
     public Package(String serialNumber, PackageType type, String qualityMark, double mass) {

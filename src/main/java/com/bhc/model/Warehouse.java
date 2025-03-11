@@ -1,3 +1,4 @@
+// Warehouse.java
 package main.java.com.bhc.model;
 
 import java.util.ArrayList;
@@ -16,9 +17,7 @@ public abstract class Warehouse {
 
     // Abstract methods
     public abstract void loadPackage(Package pkg, Line line);
-
     public abstract void offloadPackage(Package pkg);
-
     public abstract void discardPackage(Package pkg);
 
     // Concrete methods

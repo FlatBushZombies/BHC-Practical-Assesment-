@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Pallet {
     private String serialNumber;
-    private String qualityMark;
+    private String qualityMark; // Quality mark as a String
     private List<Package> packages;
     private int maxCapacity;
 
@@ -18,7 +18,7 @@ public class Pallet {
     }
 
     public boolean addPackage(Package pkg) {
-        if (packages.size() < maxCapacity && pkg.getQualityMark() == qualityMark) {
+        if (packages.size() < maxCapacity && pkg.getQualityMark().equals(qualityMark)) {
             packages.add(pkg);
             return true;
         }
