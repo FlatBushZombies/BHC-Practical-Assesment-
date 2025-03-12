@@ -16,9 +16,11 @@ public abstract class Warehouse {
     }
 
     // Abstract methods
-    public abstract void loadPackage(Package pkg, Line line);
-    public abstract void offloadPackage(Package pkg);
-    public abstract void discardPackage(Package pkg);
+    public abstract void loadPackage(LogisticsPackage pkg, Line line);
+
+    public abstract void offloadPackage(LogisticsPackage pkg);
+
+    public abstract void discardPackage(LogisticsPackage pkg);
 
     // Concrete methods
     public void addLine(Line line) {

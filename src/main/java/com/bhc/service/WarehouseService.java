@@ -17,7 +17,7 @@ public class WarehouseService {
      * @param pkg  The package to load.
      * @param line The line where the package will be loaded.
      */
-    public void loadPackage(Package pkg, Line line) {
+    public void loadPackage(LogisticsPackage pkg, Line line) {
         if (line.addPackage(pkg)) {
             System.out.println("Package " + pkg.getSerialNumber() + " loaded into line " + line.getNumber());
         } else {
@@ -30,7 +30,7 @@ public class WarehouseService {
      *
      * @param pkg The package to offload.
      */
-    public void offloadPackage(Package pkg) {
+    public void offloadPackage(LogisticsPackage pkg) {
         for (Line line : warehouse.getLines()) {
             if (line.getPackages().contains(pkg)) {
                 line.getPackages().remove(pkg);
@@ -54,7 +54,7 @@ public class WarehouseService {
      *
      * @param pkg The package to discard.
      */
-    public void discardPackage(Package pkg) {
+    public void discardPackage(LogisticsPackage pkg) {
         for (Line line : warehouse.getLines()) {
             if (line.getPackages().contains(pkg)) {
                 line.getPackages().remove(pkg);
@@ -79,15 +79,15 @@ public class WarehouseService {
      * @param serialNumber The serial number of the package.
      * @return The package if found, otherwise null.
      */
-    public Package searchPackage(String serialNumber) {
+    public LogisticsPackage searchPackage(String serialNumber) {
         for (Line line : warehouse.getLines()) {
-            for (Package pkg : line.getPackages()) {
+            for (LogisticsPackage pkg : line.getPackages()) {
                 if (pkg.getSerialNumber().equals(serialNumber)) {
                     return pkg;
                 }
             }
             for (Pallet pallet : line.getPallets()) {
-                for (Package pkg : pallet.getPackages()) {
+                for (LogisticsPackage pkg : pallet.getPackages()) {
                     if (pkg.getSerialNumber().equals(serialNumber)) {
                         return pkg;
                     }

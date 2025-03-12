@@ -8,17 +8,17 @@ public class Main {
         // Create a warehouse
         Warehouse warehouse = new Warehouse("Warehouse A", 1000.0) {
             @Override
-            public void loadPackage(Package pkg, Line line) {
+            public void loadPackage(LogisticsPackage pkg, Line line) {
                 // Delegate to WarehouseService
             }
 
             @Override
-            public void offloadPackage(Package pkg) {
+            public void offloadPackage(LogisticsPackage pkg) {
                 // Delegate to WarehouseService
             }
 
             @Override
-            public void discardPackage(Package pkg) {
+            public void discardPackage(LogisticsPackage pkg) {
                 // Delegate to WarehouseService
             }
 
@@ -36,7 +36,7 @@ public class Main {
         warehouse.addLine(line1);
 
         // Create a package
-        Package pkg1 = new Package("12345", PackageType.LOOSE, "HIGH", 10.0);
+        LogisticsPackage pkg1 = new LogisticsPackage("12345", PackageType.LOOSE, "HIGH", 10.0);
 
         // Load the package into the line
         warehouseService.loadPackage(pkg1, line1);
@@ -45,7 +45,7 @@ public class Main {
         System.out.println(warehouseService.generateWarehouseSnapshot());
 
         // Search for a package
-        Package foundPackage = warehouseService.searchPackage("12345");
+        LogisticsPackage foundPackage = warehouseService.searchPackage("12345");
         if (foundPackage != null) {
             System.out.println("Found package: " + foundPackage.getSerialNumber());
         } else {

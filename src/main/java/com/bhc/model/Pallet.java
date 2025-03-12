@@ -7,7 +7,7 @@ import java.util.List;
 public class Pallet {
     private String serialNumber;
     private String qualityMark; // Quality mark as a String
-    private List<Package> packages;
+    private List<LogisticsPackage> packages;
     private int maxCapacity;
 
     public Pallet(String serialNumber, String qualityMark, int maxCapacity) {
@@ -17,7 +17,7 @@ public class Pallet {
         this.packages = new ArrayList<>();
     }
 
-    public boolean addPackage(Package pkg) {
+    public boolean addPackage(LogisticsPackage pkg) {
         if (packages.size() < maxCapacity && pkg.getQualityMark().equals(qualityMark)) {
             packages.add(pkg);
             return true;
@@ -25,11 +25,15 @@ public class Pallet {
         return false;
     }
 
-    public List<Package> getPackages() {
+    public List<LogisticsPackage> getPackages() {
         return packages;
     }
 
     public String getSerialNumber() {
         return serialNumber;
+    }
+
+    public String getQualityMark() {
+        return qualityMark;
     }
 }

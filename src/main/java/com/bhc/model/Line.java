@@ -9,7 +9,7 @@ public class Line {
     private PackageType type;
     private String qualityMark; // Quality mark as a String
     private double maxCapacity; // in kgs or number of cartons
-    private List<Package> packages;
+    private List<LogisticsPackage> packages;
     private List<Pallet> pallets;
 
     public Line(int number, PackageType type, String qualityMark, double maxCapacity) {
@@ -21,7 +21,11 @@ public class Line {
         this.pallets = new ArrayList<>();
     }
 
-    public boolean addPackage(Package pkg) {
+    public int getNumber() {
+        return number;
+    }
+
+    public boolean addPackage(LogisticsPackage pkg) {
         if (pkg.getType() == type && pkg.getQualityMark().equals(qualityMark)) {
             packages.add(pkg);
             return true;
@@ -37,7 +41,7 @@ public class Line {
         return false;
     }
 
-    public List<Package> getPackages() {
+    public List<LogisticsPackage> getPackages() {
         return packages;
     }
 
